@@ -5,17 +5,15 @@ setup: uno with midi shield (sparkfun)
 */
 
 //LIBRARY
-#include <EPROM.h>
+#include <EEPROM.h> //* need to include these in ino file too for linking
 #include <Bounce2.h>
-#include <MIDI.h>
-
-//BUTTONS
+//#include <MIDI.h> no need since using serial directly
 
 
-//DEBOUNCE
 
+//DEBOUNCE?
 
-//POTS
+//INIT BUTTON AND POTS
 
 
 //MIDI assignments
@@ -30,13 +28,11 @@ void setup() {
   // Baud Rate
   // 31250 for MIDI class compliant
   Serial.begin(31250);
+  initButtonsAndPots();
 }
 
 //LOOP
-
-
-
-//MORE BUTTONS
-
-
-//MORE POTS
+void loop() {
+  handleInput();
+  // other serial for debug?
+}
