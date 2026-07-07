@@ -15,5 +15,8 @@ b3 (short/long) - decrement
 
 libraris:
 eeprom.h
-debounce??
+debounce?? YES
 no need midi since will just use serial
+
+buttons/pots in separate handler
+
