@@ -7,6 +7,8 @@ setup: uno with midi shield (sparkfun)
 //LIBRARY
 #include <EEPROM.h> //* need to include these in ino file too for linking
 #include <Bounce2.h>
+#include "src/settings.h"
+#include "src/handleInput.h"
 //#include <MIDI.h> no need since using serial directly
 
 
@@ -22,6 +24,7 @@ const byte NOTE = 36; //* C2
 const byte VELOCITY = 100;
 const int DURATION_MS = 120;
 
+void initAll();
 
 //SETUP
 void setup() {
@@ -39,11 +42,11 @@ void loop() {
 
 //INIT
 void initAll(){
-		Settings settings(
+		Settings settings{
 			36, //*note
 			100, //*velocity
-			120) //duration(ms)
-			;
+			120 //duration(ms)
+        };
 		//if statement for loading from persistence
 		//anything else needs to be done for midi? serial baud rate already set
 		//whatever needs to be done for the resistance re buttons and pots??
