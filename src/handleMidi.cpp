@@ -1,7 +1,6 @@
 
-#include "Arduino.h"
 #include "handleMidi.h"
-#include <cstdint>
+#include <Arduino.h>
 
 void triggerNote(uint8_t n, uint8_t v, uint16_t d) {
   noteOn(n, v);
@@ -11,9 +10,9 @@ void triggerNote(uint8_t n, uint8_t v, uint16_t d) {
   digitalWrite(7, HIGH);
 }
 
-void noteOn(uint8_t n, uint8_t v) { sendMidi(0x90, n, v) }
+void noteOn(uint8_t n, uint8_t v) { sendMidi(0x90, n, v); }
 
-void noteOff(uint8_t n) { sendMidi(0x80, n, 0x0) }
+void noteOff(uint8_t n) { sendMidi(0x80, n, 0x0); }
 
 void sendMidi(uint8_t c, uint8_t n, uint8_t v) {
   Serial.write(c);
